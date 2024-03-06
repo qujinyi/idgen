@@ -1,0 +1,47 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: ""
+    version: 0.0.1
+paths:
+    /api/idgen/v1/sequence/next:
+        get:
+            tags:
+                - Sequence
+            operationId: Sequence_Next
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.idgen.v1.NextReply'
+    /api/idgen/v1/snowflake/generate:
+        get:
+            tags:
+                - Snowflake
+            operationId: Snowflake_Generate
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.idgen.v1.GenerateReply'
+components:
+    schemas:
+        api.idgen.v1.GenerateReply:
+            type: object
+            properties:
+                id:
+                    type: string
+        api.idgen.v1.NextReply:
+            type: object
+            properties:
+                id:
+                    type: string
+tags:
+    - name: Sequence
+    - name: Snowflake

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package api.idgen.v1;
+
+import "errors/errors.proto";
+
+option go_package = "idgen/api/idgen/v1;v1";
+
+enum ErrorReason {
+  option (errors.default_code) = 500;
+
+  ERROR_REASON_UNSPECIFIED = 0;
+
+  // service Sequence
+  NOT_FOUND = 1 [(errors.code) = 404];
+
+  // service Snowflake
+  CONTENT_MISSING = 2 [(errors.code) = 400];
+}

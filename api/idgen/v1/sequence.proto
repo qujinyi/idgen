@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package api.idgen.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "idgen/api/idgen/v1;v1";
+
+service Sequence {
+  rpc Next(NextRequest) returns (NextReply) {
+    option (google.api.http) = {get: "/api/idgen/v1/sequence/next"};
+  }
+}
+
+message NextRequest {}
+message NextReply {
+  int64 id = 1;
+}
